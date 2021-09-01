@@ -9,4 +9,5 @@ RUN cd ${BUILD_DIR} && go build -mod=vendor -o bush
 FROM alpine:3.12
 WORKDIR /app
 COPY --from=build-env /build/bush /app
+COPY --from=build-env /build/conf /app/config
 CMD [ "./bush"]

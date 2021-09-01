@@ -40,7 +40,7 @@ func main() {
 }
 
 func initLogger() {
-	logger, err := log.LoggerFromParamConfigAsFile("logging.xml", nil)
+	logger, err := log.LoggerFromParamConfigAsFile("conf/logging.xml", nil)
 	if err != nil {
 		panic(err)
 	}
