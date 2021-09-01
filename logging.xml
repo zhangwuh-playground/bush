@@ -1,0 +1,9 @@
+<seelog>
+    <outputs formatid="common">
+        <console/>
+<!--        <file path="file.log"/>-->
+    </outputs>
+    <formats>
+        <format id="common" format="[%Time %Date] %Func: %Msg%n"/>
+    </formats>
+</seelog>
