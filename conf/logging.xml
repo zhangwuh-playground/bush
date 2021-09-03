@@ -1,10 +1,10 @@
 <seelog>
-    <outputs>
+    <outputs formatid="json">
         <console/>
 <!--        <file path="file.log"/>-->
     </outputs>
     <formats>
 <!--        <format id="common" format="[%Time %Date] %Func: %Msg%n"/>-->
-        <format id="std:json" format='{"level":"%Lev","@timestamp":"%Ns","thread_name":"%RelFile:%Line","message":"%Msg"}' />
+        <format id="json" format='{"level":"%Lev","@timestamp":"%Ns","thread_name":"%RelFile:%Line","message":"%Msg"}' />
     </formats>
 </seelog>
