@@ -2,15 +2,13 @@ package main
 
 import (
 	"Bush/gen-go/user_service"
+	"Bush/log"
 
 	"github.com/apache/thrift/lib/go/thrift"
-	log "github.com/cihub/seelog"
 )
 
 const addr = ":9090"
-
 func main() {
-	initLogger()
 	protocolFactory := thrift.NewTBinaryProtocolFactoryConf(&thrift.TConfiguration{})
 	transportFactory := thrift.NewTTransportFactory()
 
@@ -22,27 +20,19 @@ func main() {
 	var transport thrift.TServerTransport
 	transport, err = thrift.NewTServerSocket(addr)
 	if err != nil {
-		log.Errorf("error running server:%s", err.Error())
+		log.ErrorNt("error running server", err)
 	}
 
 	//processor
 	processor := user_service.NewUserServiceProcessor(handler)
 
-	log.Infof("Buth comming from %s", addr)
+	log.InfoNt(log.Message("Buth comming from %s", addr))
 
 	//start tcp server
 	server := thrift.NewTSimpleServer4(processor, transport, transportFactory, protocolFactory)
 	err = server.Serve()
 
 	if err != nil {
-		log.Infof("error running server:", err)
+		log.ErrorNt("error running server", err)
 	}
-}
-
-func initLogger() {
-	logger, err := log.LoggerFromParamConfigAsFile("conf/logging.xml", nil)
-	if err != nil {
-		panic(err)
-	}
-	log.ReplaceLogger(logger)
 }
