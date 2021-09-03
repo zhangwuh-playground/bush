@@ -1,5 +1,5 @@
 <seelog>
-    <outputs formatid="std:json">
+    <outputs>
         <console/>
 <!--        <file path="file.log"/>-->
     </outputs>
