@@ -1,13 +1,6 @@
 # github.com/apache/thrift v0.14.2
 ## explicit
 github.com/apache/thrift/lib/go/thrift
-# github.com/cihub/seelog v0.0.0-20170130134532-f561c5e57575
-## explicit
-github.com/cihub/seelog
-github.com/cihub/seelog/archive
-github.com/cihub/seelog/archive/gzip
-github.com/cihub/seelog/archive/tar
-github.com/cihub/seelog/archive/zip
 # go.uber.org/atomic v1.7.0
 ## explicit; go 1.13
 go.uber.org/atomic
