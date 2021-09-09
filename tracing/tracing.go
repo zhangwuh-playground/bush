@@ -19,7 +19,7 @@ func GetTracer() opentracing.Tracer {
 func InitJaeger() io.Closer {
 	host := os.Getenv("JAEAGER_COLLECTOR_ADDR")
 	if len(host) == 0 {
-		host = "127.0.0.1:6831"
+		host = "127.0.0.1:14268"
 	}
 	cfg := &config.Configuration{
 		ServiceName: "Bush",
@@ -28,7 +28,7 @@ func InitJaeger() io.Closer {
 			Param: 1,
 		},
 		Reporter: &config.ReporterConfig{
-			LocalAgentHostPort: host,
+			CollectorEndpoint: fmt.Sprintf("http://%s/api/traces", host),
 			LogSpans: true,
 		},
 	}
