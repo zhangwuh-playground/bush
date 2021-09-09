@@ -3,6 +3,7 @@ package tracing
 import (
 	"fmt"
 	"io"
+	"os"
 
 	"github.com/opentracing/opentracing-go"
 	"github.com/uber/jaeger-client-go"
@@ -16,6 +17,10 @@ func GetTracer() opentracing.Tracer {
 }
 
 func InitJaeger() io.Closer {
+	host := os.Getenv("JAEAGER_COLLECTOR_ADDR")
+	if len(host) == 0 {
+		host = "127.0.0.1:6831"
+	}
 	cfg := &config.Configuration{
 		ServiceName: "Bush",
 		Sampler: &config.SamplerConfig{
@@ -23,8 +28,8 @@ func InitJaeger() io.Closer {
 			Param: 1,
 		},
 		Reporter: &config.ReporterConfig{
-			LocalAgentHostPort: "127.0.0.1:6831",
-			LogSpans:           true,
+			LocalAgentHostPort: host,
+			LogSpans: true,
 		},
 	}
 
