@@ -1,0 +1,1 @@
+thrift -r --gen go  thrift/user_service.thrift
