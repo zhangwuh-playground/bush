@@ -3,6 +3,7 @@ package main
 import (
 	"Bush/gen-go/user_service"
 	"Bush/log"
+	t "Bush/thrift"
 	"Bush/tracing"
 
 	"github.com/apache/thrift/lib/go/thrift"
@@ -15,7 +16,7 @@ func main() {
 	transportFactory := thrift.NewTTransportFactory()
 
 	//handler
-	handler := &UserService{}
+	handler := &t.UserService{}
 
 	//transport,no secure
 	var err error

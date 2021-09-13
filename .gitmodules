@@ -1,0 +1,3 @@
+[submodule "showcase-idls"]
+	path = showcase-idls
+	url = git@github.com:zhangwuh-playground/showcase-idls.git

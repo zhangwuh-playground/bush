@@ -1,4 +1,4 @@
-package main
+package thrift
 
 import (
 	"Bush/gen-go/user_service"
